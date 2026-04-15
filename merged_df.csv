@@ -1,0 +1,108 @@
+,rank,name,country_name,country_id,active,value,country,height_cm,weight_kg,age,birthdate,singles_rank_current,singles_rank_highest,doubles_rank_current,doubles_rank_highest,sex,plays
+0,2,Ben Shelton,United States,USA,False,216 km/h,USA,,,23.0,9. 10. 2002,8,5.0,100,68.0,man,left
+1,6,Jiri Vesely,Czech Republic,CZE,False,196 km/h,Czech Republic,198.0,94.0,32.0,10. 7. 1993,1790,35.0,1051,67.0,man,left
+2,7,Matteo Berrettini,Italy,ITA,False,195 km/h,Italy,196.0,95.0,29.0,12. 4. 1996,66,6.0,345,10.0,man,right
+3,8,Nick Kyrgios,Australia,AUS,False,195 km/h,Australia,193.0,85.0,30.0,27. 4. 1995,751,13.0,1288,11.0,man,right
+4,9,Reilly Opelka,United States,USA,False,195 km/h,USA,211.0,102.0,28.0,28. 8. 1997,68,17.0,-,38.0,man,right
+5,11,Alexander Bublik,Kazakhstan,KAZ,False,193 km/h,Kazakhstan,198.0,77.0,28.0,17. 6. 1997,10,10.0,583,45.0,man,right
+6,12,Alexander Zverev,Germany,GER,False,193 km/h,Germany,198.0,90.0,28.0,20. 4. 1997,4,2.0,137,7.0,man,right
+7,14,Kevin Anderson,South Africa,RSA,False,192 km/h,RSA,203.0,94.0,39.0,18. 5. 1986,-,5.0,-,58.0,man,right
+8,16,Sebastian Ofner,Austria,AUT,False,191 km/h,Austria,191.0,81.0,29.0,12. 5. 1996,108,37.0,542,159.0,man,right
+9,17,Nicolas Jarry,Chile,CHI,False,190 km/h,Chile,198.0,90.0,30.0,11. 10. 1995,154,16.0,-,40.0,man,right
+10,18,Hubert Hurkacz,Poland,POL,False,190 km/h,Poland,196.0,81.0,29.0,11. 2. 1997,71,6.0,-,29.0,man,right
+11,19,Quentin Halys,France,FRA,False,190 km/h,France,191.0,78.0,29.0,26. 10. 1996,102,46.0,89,88.0,man,right
+12,20,Denis Shapovalov,Canada,CAN,False,189 km/h,Canada,185.0,75.0,26.0,15. 4. 1999,39,10.0,348,11.0,man,left
+13,21,Arthur Rinderknech,France,FRA,False,189 km/h,France,196.0,86.0,30.0,23. 7. 1995,28,26.0,361,124.0,man,right
+14,23,Maximilian Marterer,Germany,GER,False,189 km/h,Germany,191.0,84.0,30.0,15. 6. 1995,750,45.0,-,206.0,man,left
+15,25,Zhizhen Zhang,China,CHN,False,188 km/h,China,193.0,87.0,29.0,16. 10. 1996,262,31.0,-,47.0,man,right
+16,26,Stefanos Tsitsipas,Greece,GRE,False,187 km/h,Greece,193.0,89.0,27.0,12. 8. 1998,43,3.0,355,6.0,man,right
+17,27,Tallon Griekspoor,Netherlands,NED,False,187 km/h,Netherlands,188.0,85.0,29.0,2. 7. 1996,25,21.0,180,61.0,man,right
+18,29,Lorenzo Sonego,Italy,ITA,False,187 km/h,Italy,191.0,76.0,30.0,11. 5. 1995,61,21.0,78,33.0,man,right
+19,30,Alexei Popyrin,Australia,AUS,False,186 km/h,Australia,196.0,78.0,26.0,5. 8. 1999,45,19.0,357,113.0,man,right
+20,33,Arthur Fils,France,FRA,False,186 km/h,France,,,21.0,12. 6. 2004,32,14.0,345,185.0,man,right
+21,34,Jiri Lehecka,Czech Republic,CZE,False,186 km/h,Czech Republic,183.0,80.0,24.0,8. 11. 2001,23,16.0,178,133.0,man,right
+22,35,Christopher Eubanks,United States,USA,False,186 km/h,USA,201.0,82.0,29.0,5. 5. 1996,387,29.0,-,142.0,man,right
+23,36,Grigor Dimitrov,Bulgaria,BUL,False,185 km/h,Bulgaria,191.0,81.0,34.0,16. 5. 1991,42,3.0,-,17.0,man,right
+24,37,Jack Draper,United Kingdom,GBR,False,185 km/h,Great Britain,191.0,80.0,24.0,22. 12. 2001,14,4.0,577,202.0,man,left
+25,39,Thanasi Kokkinakis,Australia,AUS,False,185 km/h,Australia,193.0,84.0,29.0,10. 4. 1996,887,65.0,1286,15.0,man,right
+26,41,Benjamin Bonzi,France,FRA,False,185 km/h,France,185.0,76.0,29.0,9. 6. 1996,111,42.0,252,121.0,man,right
+27,42,Michael Mmoh,United States,USA,False,184 km/h,USA,188.0,90.0,28.0,10. 1. 1998,359,81.0,-,174.0,man,right
+28,44,Roman Safiullin,Russian Federation,RUS,False,184 km/h,Russia,185.0,75.0,28.0,7. 8. 1997,199,36.0,-,151.0,man,right
+29,45,Thiago Monteiro,Brazil,BRA,False,184 km/h,Brazil,183.0,78.0,31.0,31. 5. 1994,232,61.0,-,74.0,man,left
+30,47,Daniil Medvedev,Russian Federation,RUS,False,183 km/h,Russia,198.0,83.0,30.0,11. 2. 1996,11,1.0,-,3.0,man,right
+31,48,Borna Coric,Croatia,CRO,False,183 km/h,Croatia,188.0,85.0,29.0,14. 11. 1996,146,12.0,-,24.0,man,right
+32,50,Casper Ruud,Norway,NOR,False,182 km/h,Norway,183.0,77.0,27.0,22. 12. 1998,13,2.0,-,24.0,man,right
+33,51,Emil Ruusuvuori,Finland,FIN,False,182 km/h,Finland,188.0,79.0,26.0,2. 4. 1999,604,37.0,521,85.0,man,right
+34,53,Stan Wawrinka,Switzerland,SUI,False,182 km/h,Switzerland,182.0,79.0,40.0,28. 3. 1985,92,3.0,-,18.0,man,right
+35,54,Karen Khachanov,Russian Federation,RUS,False,182 km/h,Russia,198.0,87.0,29.0,21. 5. 1996,16,8.0,151,20.0,man,right
+36,56,Kyle Edmund,United Kingdom,GBR,False,182 km/h,Great Britain,188.0,83.0,31.0,8. 1. 1995,708,14.0,-,48.0,man,right
+37,58,Frances Tiafoe,United States,USA,False,182 km/h,USA,188.0,86.0,28.0,20. 1. 1998,22,10.0,586,59.0,man,right
+38,59,Aslan Karatsev,Russian Federation,RUS,False,181 km/h,Russia,185.0,85.0,32.0,4. 9. 1993,721,14.0,-,42.0,man,right
+39,60,Jannik Sinner,Italy,ITA,False,181 km/h,Italy,188.0,76.0,24.0,16. 8. 2001,2,1.0,-,34.0,man,right
+40,61,Marin Cilic,Croatia,CRO,False,181 km/h,Croatia,198.0,89.0,37.0,28. 9. 1988,51,3.0,-,42.0,man,right
+41,63,Brandon Nakashima,United States,USA,False,180 km/h,USA,185.0,77.0,24.0,3. 8. 2001,30,29.0,514,141.0,man,right
+42,66,Alejandro Tabilo,Chile,CHI,False,180 km/h,Chile,188.0,75.0,28.0,2. 6. 1997,40,19.0,304,106.0,man,left
+43,67,Kamil Majchrzak,Poland,POL,False,180 km/h,Poland,180.0,78.0,30.0,13. 1. 1996,57,55.0,-,107.0,man,right
+44,68,Gael Monfils,France,FRA,False,180 km/h,France,193.0,85.0,39.0,1. 9. 1986,148,6.0,-,11.0,man,right
+45,71,Dennis Novak,Austria,AUT,False,179 km/h,Austria,183.0,80.0,32.0,28. 8. 1993,660,85.0,840,96.0,man,right
+46,72,Sebastian Korda,United States,USA,False,179 km/h,USA,193.0,75.0,25.0,5. 7. 2000,37,15.0,102,46.0,man,right
+47,74,Laslo Djere,Serbia,SRB,False,179 km/h,Serbia,188.0,82.0,30.0,2. 6. 1995,206,27.0,-,55.0,man,right
+48,75,Alexander Shevchenko,Kazakhstan,KAZ,False,179 km/h,Kazakhstan,185.0,70.0,25.0,29. 11. 2000,88,45.0,-,406.0,man,right
+49,76,Novak Djokovic,Serbia,SRB,False,179 km/h,Serbia,187.0,80.0,38.0,22. 5. 1987,3,1.0,-,1.0,man,right
+50,78,Aleksandar Vukic,Australia,AUS,False,178 km/h,Australia,188.0,84.0,29.0,6. 4. 1996,89,48.0,577,195.0,man,right
+51,80,Pedro Cachin,Argentina,ARG,False,178 km/h,Argentina,185.0,77.0,30.0,12. 4. 1995,908,48.0,-,219.0,man,right
+52,81,Andrey Rublev,Russian Federation,RUS,False,178 km/h,Russia,188.0,70.0,28.0,20. 10. 1997,17,5.0,179,8.0,man,right
+53,82,Jason Kubler,Australia,AUS,False,178 km/h,Australia,178.0,74.0,32.0,19. 5. 1993,217,63.0,77,27.0,man,right
+54,83,Nuno Borges,Portugal,POR,False,178 km/h,Portugal,185.0,75.0,29.0,19. 2. 1997,49,30.0,145,69.0,man,right
+55,85,Marco Cecchinato,Italy,ITA,False,178 km/h,Italy,185.0,78.0,33.0,30. 9. 1992,225,16.0,-,79.0,man,right
+56,86,Daniel Evans,United Kingdom,GBR,False,178 km/h,Great Britain,175.0,75.0,35.0,23. 5. 1990,202,21.0,1189,28.0,man,right
+57,87,James Duckworth,Australia,AUS,False,177 km/h,Australia,183.0,82.0,34.0,21. 1. 1992,83,46.0,359,100.0,man,right
+58,89,Elias Ymer,Sweden,SWE,False,177 km/h,Sweden,183.0,79.0,29.0,10. 4. 1996,174,105.0,-,188.0,man,right
+59,90,Tommy Paul,United States,USA,False,177 km/h,USA,185.0,82.0,28.0,17. 5. 1997,24,8.0,511,52.0,man,right
+60,93,Lorenzo Musetti,Italy,ITA,False,176 km/h,Italy,185.0,75.0,24.0,3. 3. 2002,5,5.0,87,85.0,man,right
+61,94,Fabian Marozsan,Hungary,HUN,False,176 km/h,Hungary,,,26.0,8. 10. 1999,46,36.0,352,336.0,man,right
+62,95,Facundo Bagnis,Argentina,ARG,False,176 km/h,Argentina,183.0,82.0,36.0,27. 2. 1990,386,55.0,-,78.0,man,left
+63,96,Marton Fucsovics,Hungary,HUN,False,176 km/h,Hungary,188.0,82.0,34.0,8. 2. 1992,56,31.0,-,54.0,man,right
+64,97,Miomir Kecmanovic,Serbia,SRB,False,176 km/h,Serbia,183.0,75.0,26.0,31. 8. 1999,58,27.0,895,41.0,man,right
+65,98,Illya Marchenko,Ukraine,UKR,False,176 km/h,Ukraine,185.0,82.0,38.0,8. 9. 1987,1687,49.0,-,176.0,man,right
+66,101,Yannick Hanfmann,Germany,GER,False,175 km/h,Germany,193.0,86.0,34.0,13. 11. 1991,65,45.0,-,81.0,man,right
+67,103,Ugo Humbert,France,FRA,False,175 km/h,France,188.0,73.0,27.0,26. 6. 1998,34,13.0,-,30.0,man,left
+68,110,Nikoloz Basilashvili,Georgia,GEO,False,174 km/h,Georgia,185.0,79.0,34.0,23. 2. 1992,133,16.0,-,39.0,man,right
+69,111,Ilya Ivashka,Belarus,BLR,False,174 km/h,Belarus,193.0,84.0,32.0,24. 2. 1994,701,40.0,-,108.0,man,right
+70,112,Alex Michelsen,United States,USA,False,174 km/h,USA,,,21.0,25. 8. 2004,44,30.0,92,67.0,man,right
+71,113,Aljaz Bedene,Slovenia,SLO,False,174 km/h,Slovenia,183.0,73.0,36.0,18. 7. 1989,-,43.0,-,58.0,man,right
+72,115,Stefano Travaglia,Italy,ITA,False,173 km/h,Italy,185.0,80.0,34.0,28. 12. 1991,166,60.0,366,63.0,man,right
+73,116,Richard Gasquet,France,FRA,False,173 km/h,France,183.0,79.0,39.0,18. 6. 1986,375,7.0,-,45.0,man,right
+74,117,Ricardas Berankis,Lithuania,LTU,False,173 km/h,Lithuania,175.0,77.0,35.0,21. 6. 1990,596,50.0,1351,69.0,man,right
+75,119,Federico Coria,Argentina,ARG,False,173 km/h,Argentina,180.0,73.0,34.0,9. 3. 1992,537,49.0,-,91.0,man,right
+76,121,Marcos Giron,United States,USA,False,172 km/h,USA,180.0,77.0,32.0,24. 7. 1993,69,37.0,586,70.0,man,right
+77,122,Daniel Altmaier,Germany,GER,False,172 km/h,Germany,191.0,88.0,27.0,12. 9. 1998,55,44.0,-,130.0,man,right
+78,123,Taro Daniel,Japan,JPN,False,172 km/h,Japan,191.0,80.0,33.0,27. 1. 1993,446,58.0,-,116.0,man,right
+79,127,Dusan Lajovic,Serbia,SRB,False,171 km/h,Serbia,183.0,83.0,35.0,30. 6. 1990,120,23.0,-,26.0,man,right
+80,129,Jaume Munar,Spain,ESP,False,171 km/h,Spain,183.0,76.0,28.0,5. 5. 1997,36,33.0,202,98.0,man,right
+81,134,David Goffin,Belgium,BEL,False,171 km/h,Belgium,180.0,70.0,35.0,7. 12. 1990,143,7.0,-,14.0,man,right
+82,135,Alex Molcan,Slovakia,SVK,False,170 km/h,Slovakia,178.0,73.0,28.0,1. 12. 1997,200,38.0,-,268.0,man,left
+83,137,Flavio Cobolli,Italy,ITA,False,170 km/h,Italy,,,23.0,6. 5. 2002,15,15.0,362,185.0,man,right
+84,138,Rinky Hijikata,Australia,AUS,False,170 km/h,Australia,178.0,68.0,25.0,23. 2. 2001,117,62.0,62,23.0,man,right
+85,140,Alexandre Muller,France,FRA,False,170 km/h,France,183.0,75.0,29.0,1. 2. 1997,81,38.0,440,194.0,man,right
+86,143,Jordan Thompson,Australia,AUS,False,170 km/h,Australia,183.0,82.0,31.0,20. 4. 1994,116,26.0,66,3.0,man,right
+87,144,Jozef Kovalik,Slovakia,SVK,False,170 km/h,Slovakia,183.0,82.0,33.0,4. 11. 1992,691,80.0,-,126.0,man,right
+88,145,Adrian Mannarino,France,FRA,False,169 km/h,France,180.0,79.0,37.0,29. 6. 1988,48,17.0,-,34.0,man,left
+89,147,Pavel Kotov,Russian Federation,RUS,False,169 km/h,Russia,191.0,86.0,27.0,18. 11. 1998,402,50.0,-,226.0,man,right
+90,148,Cameron Norrie,United Kingdom,GBR,False,169 km/h,Great Britain,188.0,82.0,30.0,23. 8. 1995,29,8.0,251,65.0,man,left
+91,149,Francisco Cerundolo,Argentina,ARG,False,169 km/h,Argentina,185.0,78.0,27.0,13. 8. 1998,20,18.0,255,135.0,man,right
+92,150,Mikael Ymer,Sweden,SWE,False,169 km/h,Sweden,183.0,75.0,27.0,9. 9. 1998,890,50.0,-,91.0,man,right
+93,152,Oscar Otte,Germany,GER,False,168 km/h,Germany,193.0,79.0,32.0,16. 7. 1993,1028,36.0,-,140.0,man,right
+94,153,Radu Albot,"Moldova, Republic of",MDA,False,168 km/h,Moldavsko,175.0,69.0,36.0,11. 11. 1989,419,39.0,1423,56.0,man,right
+95,154,Sebastian Baez,Argentina,ARG,False,167 km/h,Argentina,170.0,70.0,25.0,28. 12. 2000,53,18.0,-,189.0,man,right
+96,156,Tomas Machac,Czech Republic,CZE,False,167 km/h,Czech Republic,183.0,73.0,25.0,13. 10. 2000,50,20.0,114,46.0,man,right
+97,157,Jenson Brooksby,United States,USA,False,167 km/h,USA,188.0,82.0,25.0,26. 10. 2000,41,33.0,-,249.0,man,right
+98,158,Pablo Cuevas,Uruguay,URU,False,166 km/h,Uruguay,180.0,78.0,,,-,19.0,-,14.0,man,right
+99,161,Mikhail Kukushkin,Kazakhstan,KAZ,False,166 km/h,Kazakhstan,183.0,72.0,38.0,26. 12. 1987,259,39.0,892,67.0,man,right
+100,164,Kei Nishikori,Japan,JPN,False,162 km/h,Japan,178.0,73.0,36.0,29. 12. 1989,284,4.0,-,41.0,man,right
+101,166,Damir Dzumhur,Bosnia and Herzegovina,BIH,False,162 km/h,Bosnia and Herzeg.,175.0,68.0,33.0,20. 5. 1992,64,23.0,899,117.0,man,right
+102,167,Corentin Moutet,France,FRA,False,160 km/h,France,175.0,68.0,26.0,19. 4. 1999,33,31.0,347,72.0,man,left
+103,168,Hugo Gaston,France,FRA,False,159 km/h,France,173.0,68.0,25.0,26. 9. 2000,96,58.0,887,161.0,man,left
+104,169,Hugo Dellien,"Bolivia, Plurinational State of",BOL,False,158 km/h,Bolivia,180.0,75.0,32.0,16. 6. 1993,164,64.0,-,111.0,man,right
+105,172,Egor Gerasimov,Belarus,BLR,False,157 km/h,Belarus,196.0,86.0,33.0,11. 11. 1992,827,65.0,914,78.0,man,right
+106,173,Yoshihito Nishioka,Japan,JPN,False,156 km/h,Japan,170.0,64.0,30.0,27. 9. 1995,170,24.0,-,56.0,man,left
