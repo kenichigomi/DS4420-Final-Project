@@ -18,16 +18,21 @@ data_encoded <- cbind(data, encoded)
 data_encoded$plays <- NULL
 
 # min-max scaling
-min_max <- function(x) {
-  (x - min(x)) / (max(x) - min(x))
+min_max_scale <- function(x) {
+  rng <- range(x, na.rm = TRUE)
+  
+  if (any(is.na(rng)) || rng[1] == rng[2]) return(rep(NA, length(x)))
+  
+  out <- (x - rng[1]) / (rng[2] - rng[1])
+  out
 }
 
-data_scaled <- as.data.frame(lapply(data_encoded, min_max))
+data_scaled <- as.data.frame(lapply(data_encoded, min_max_scale))
 
-data_encoded$singles_rank_current <- NULL
-data_encoded$singles_rank_highest <- NULL
-data_encoded$doubles_rank_current <- NULL
-data_encoded$doubles_rank_highest <- NULL
+data_scaled$singles_rank_current <- NULL
+data_scaled$singles_rank_highest <- NULL
+data_scaled$doubles_rank_current <- NULL
+data_scaled$doubles_rank_highest <- NULL
 
 user_collab_filter <- function(dataframe, target, similarity_metric, k) {
   # Convert dataframe to matrix
@@ -109,7 +114,7 @@ user_collab_filter <- function(dataframe, target, similarity_metric, k) {
   return(users_matrix[tgt_idx, ])
 }
 
-copy_data <- data_encoded
+copy_data <- data_scaled
 
 new_player <- data.frame(serve_speed=NA,
                          height_cm=183,
@@ -194,6 +199,9 @@ for (player in rmse_players) {
 rmse(true_speed, pred_speed_k_3_cos)
 rmse(true_speed, pred_speed_k_3_l2)
 
+mae(true_speed, pred_speed_k_3_cos)
+mae(true_speed, pred_speed_k_3_l2)
+
 # k=10
 pred_speed_k_10_cos <- c()
 pred_speed_k_10_l2 <- c()
@@ -207,6 +215,9 @@ for (player in rmse_players) {
 
 rmse(true_speed, pred_speed_k_10_cos)
 rmse(true_speed, pred_speed_k_10_l2)
+
+mae(true_speed, pred_speed_k_10_cos)
+mae(true_speed, pred_speed_k_10_l2)
 
 # k=30
 pred_speed_k_30_cos <- c()
@@ -222,24 +233,27 @@ for (player in rmse_players) {
 rmse(true_speed, pred_speed_k_30_cos)
 rmse(true_speed, pred_speed_k_30_l2)
 
-# k=50
-pred_speed_k_50_cos <- c()
-pred_speed_k_50_l2 <- c()
+mae(true_speed, pred_speed_k_30_cos)
+mae(true_speed, pred_speed_k_30_l2)
 
-for (player in rmse_players) {
-  pred <- user_collab_filter(copy_data, player, "cosine", 50)
-  pred_speed_k_50_cos <- c(pred_speed_k_50_cos, pred["serve_speed"])
-  pred <- user_collab_filter(copy_data, player, "L2", 50)
-  pred_speed_k_50_l2 <- c(pred_speed_k_50_l2, pred["serve_speed"])
-}
-
-rmse(true_speed, pred_speed_k_50_cos)
-rmse(true_speed, pred_speed_k_50_l2)
+# # k=50
+# pred_speed_k_50_cos <- c()
+# pred_speed_k_50_l2 <- c()
+# 
+# for (player in rmse_players) {
+#   pred <- user_collab_filter(copy_data, player, "cosine", 50)
+#   pred_speed_k_50_cos <- c(pred_speed_k_50_cos, pred["serve_speed"])
+#   pred <- user_collab_filter(copy_data, player, "L2", 50)
+#   pred_speed_k_50_l2 <- c(pred_speed_k_50_l2, pred["serve_speed"])
+# }
+# 
+# rmse(true_speed, pred_speed_k_50_cos)
+# rmse(true_speed, pred_speed_k_50_l2)
 
 all_y <- c(pred_speed_k_3_cos, pred_speed_k_3_l2,
            pred_speed_k_10_cos, pred_speed_k_10_l2,
-           pred_speed_k_30_cos, pred_speed_k_30_l2,
-           pred_speed_k_50_cos, pred_speed_k_50_l2)
+           pred_speed_k_30_cos, pred_speed_k_30_l2
+           )
 
 plot(true_speed, pred_speed_k_3_cos, col="red", pch=19, ylim = range(all_y, na.rm = TRUE),
      main="True vs Predicted Serve Speeds",
@@ -250,13 +264,10 @@ points(true_speed, pred_speed_k_10_cos, col="green", pch=19)
 points(true_speed, pred_speed_k_10_l2, col="green", pch=17)
 points(true_speed, pred_speed_k_30_cos, col="blue", pch=19)
 points(true_speed, pred_speed_k_30_l2, col="blue", pch=17)
-points(true_speed, pred_speed_k_50_cos, col="purple", pch=19)
-points(true_speed, pred_speed_k_50_l2, col="purple", pch=17)
-legend("left",
+legend("topright",
        legend = c("k=3 Cosine", "k=3 L2",
                   "k=10 Cosine", "k=10 L2",
-                  "k=30 Cosine", "k=30 L2",
-                  "k=50 Cosine", "k=50 L2"),
-       col = c("red", "red", "green", "green", "blue", "blue", "purple", "purple"),
-       pch = c(19, 17, 19, 17, 19, 17, 19, 17))
+                  "k=30 Cosine", "k=30 L2"),
+       col = c("red", "red", "green", "green", "blue", "blue"),
+       pch = c(19, 17, 19, 17, 19, 17))
 
