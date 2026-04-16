@@ -1,6 +1,8 @@
 data <- read.csv("filtered_df.csv")
 
 # preprocess data
+colnames(data)[3] <- "serve_speed"
+
 
 # one-hot encoding
 
@@ -16,22 +18,16 @@ data_encoded <- cbind(data, encoded)
 data_encoded$plays <- NULL
 
 # min-max scaling
-# min_max_scale <- function(x) {
-#   (x - min(x, na.rm = TRUE)) / (max(x, na.rm = TRUE) - min(x, na.rm = TRUE))
-# }
-# 
-# cols_to_scale <- c("height_cm", 
-#                    "weight_kg", 
-#                    "age", 
-#                    "singles_rank_current", 
-#                    "singles_rank_highest",
-#                    "doubles_rank_current",
-#                    "doubles_rank_highest",
-#                    "playsleft",
-#                    "playsright")
-# data_encoded[cols_to_scale] <- lapply(data_encoded[cols_to_scale], min_max_scale)
+min_max <- function(x) {
+  (x - min(x)) / (max(x) - min(x))
+}
+
+data_scaled <- as.data.frame(lapply(data_encoded, min_max))
+
 data_encoded$singles_rank_current <- NULL
+data_encoded$singles_rank_highest <- NULL
 data_encoded$doubles_rank_current <- NULL
+data_encoded$doubles_rank_highest <- NULL
 
 user_collab_filter <- function(dataframe, target, similarity_metric, k) {
   # Convert dataframe to matrix
@@ -113,49 +109,154 @@ user_collab_filter <- function(dataframe, target, similarity_metric, k) {
   return(users_matrix[tgt_idx, ])
 }
 
-new_player <- data.frame("value"=NA,
+copy_data <- data_encoded
+
+new_player <- data.frame(serve_speed=NA,
                          height_cm=183,
                          weight_kg=67,
                          age=20,
-                         singles_rank_highest=1230,
-                         doubles_rank_highest=1230,
                          playsleft=1,
                          playsright=0)
-data_encoded <- rbind(data_encoded, new_player)
+copy_data <- rbind(copy_data, new_player)
 
-player_2 <- data.frame("value"=NA,
+player_2 <- data.frame(serve_speed=NA,
                        height_cm=198,
                        weight_kg=94,
                        age=32,
-                       singles_rank_highest=35,
-                       doubles_rank_highest=67,
                        playsleft=1,
                        playsright=0)
-data_encoded <- rbind(data_encoded, player_2)
+copy_data <- rbind(copy_data, player_2)
 
-player_3 <- data.frame("value"=NA,
+player_3 <- data.frame(serve_speed=NA,
                        height_cm=195,
                        weight_kg=95,
                        age=29,
-                       singles_rank_highest=6,
-                       doubles_rank_highest=10,
                        playsleft=0,
                        playsright=1)
-data_encoded <- rbind(data_encoded, player_3)
+copy_data <- rbind(copy_data, player_3)
 
+# Kenichi
+user_collab_filter(copy_data, 108, "cosine", 3)["serve_speed"]
+user_collab_filter(copy_data, 108, "L2", 3)["serve_speed"]
 
-user_collab_filter(data_encoded, 108, "cosine", 30)
-user_collab_filter(data_encoded, 108, "L2", 30)
+# Player 2
+user_collab_filter(copy_data, 109, "cosine", 3)["serve_speed"]
+user_collab_filter(copy_data, 109, "L2", 3)["serve_speed"]
 
-user_collab_filter(data_encoded, 109, "cosine", 30)
-user_collab_filter(data_encoded, 109, "L2", 30)
-
-user_collab_filter(data_encoded, 110, "cosine", 30)
-user_collab_filter(data_encoded, 110, "L2", 30)
+# Player 3
+user_collab_filter(copy_data, 110, "cosine", 3)["serve_speed"]
+user_collab_filter(copy_data, 110, "L2", 3)["serve_speed"]
 
 # Ben Shelton
-user_collab_filter(data_encoded, 1, "cosine", 30)
-user_collab_filter(data_encoded, 1, "L2", 30)
+user_collab_filter(copy_data, 1, "cosine", 3)["serve_speed"]
+user_collab_filter(copy_data, 1, "L2", 3)["serve_speed"]
 # somehow he's 60cm tall and 60kg
 
+# RMSE
+rmse <- function(actual, predicted) {
+  if (length(actual) != length(predicted)) {
+    stop("error, not same length")
+  }
+  
+  valid <- !is.na(actual) & !is.na(predicted)
+  sqrt(mean((actual[valid] - predicted[valid])^2))
+}
+
+# MAE
+mae <- function(actual, predicted) {
+  if (length(actual) != length(predicted)) {
+    stop("error, not same length")
+  }
+  
+  valid <- !is.na(actual) & !is.na(predicted)
+  mean(abs(actual[valid] - predicted[valid]))
+}
+
+set.seed(53)
+rmse_players <- sample(1:107, 10)
+
+true_speed <- copy_data[rmse_players, "serve_speed"]
+
+copy_data[rmse_players, "serve_speed"] <- NA
+
+# k=3
+pred_speed_k_3_cos <- c()
+pred_speed_k_3_l2 <- c()
+
+for (player in rmse_players) {
+  pred <- user_collab_filter(copy_data, player, "cosine", 3)
+  pred_speed_k_3_cos <- c(pred_speed_k_3_cos, pred["serve_speed"])
+  
+  pred <- user_collab_filter(copy_data, player, "L2", 3)
+  pred_speed_k_3_l2 <- c(pred_speed_k_3_l2, pred["serve_speed"])
+}
+
+rmse(true_speed, pred_speed_k_3_cos)
+rmse(true_speed, pred_speed_k_3_l2)
+
+# k=10
+pred_speed_k_10_cos <- c()
+pred_speed_k_10_l2 <- c()
+
+for (player in rmse_players) {
+  pred <- user_collab_filter(copy_data, player, "cosine", 10)
+  pred_speed_k_10_cos <- c(pred_speed_k_10_cos, pred["serve_speed"])
+  pred <- user_collab_filter(copy_data, player, "L2", 10)
+  pred_speed_k_10_l2 <- c(pred_speed_k_10_l2, pred["serve_speed"])
+}
+
+rmse(true_speed, pred_speed_k_10_cos)
+rmse(true_speed, pred_speed_k_10_l2)
+
+# k=30
+pred_speed_k_30_cos <- c()
+pred_speed_k_30_l2 <- c()
+
+for (player in rmse_players) {
+  pred <- user_collab_filter(copy_data, player, "cosine", 30)
+  pred_speed_k_30_cos <- c(pred_speed_k_30_cos, pred["serve_speed"])
+  pred <- user_collab_filter(copy_data, player, "L2", 30)
+  pred_speed_k_30_l2 <- c(pred_speed_k_30_l2, pred["serve_speed"])
+}
+
+rmse(true_speed, pred_speed_k_30_cos)
+rmse(true_speed, pred_speed_k_30_l2)
+
+# k=50
+pred_speed_k_50_cos <- c()
+pred_speed_k_50_l2 <- c()
+
+for (player in rmse_players) {
+  pred <- user_collab_filter(copy_data, player, "cosine", 50)
+  pred_speed_k_50_cos <- c(pred_speed_k_50_cos, pred["serve_speed"])
+  pred <- user_collab_filter(copy_data, player, "L2", 50)
+  pred_speed_k_50_l2 <- c(pred_speed_k_50_l2, pred["serve_speed"])
+}
+
+rmse(true_speed, pred_speed_k_50_cos)
+rmse(true_speed, pred_speed_k_50_l2)
+
+all_y <- c(pred_speed_k_3_cos, pred_speed_k_3_l2,
+           pred_speed_k_10_cos, pred_speed_k_10_l2,
+           pred_speed_k_30_cos, pred_speed_k_30_l2,
+           pred_speed_k_50_cos, pred_speed_k_50_l2)
+
+plot(true_speed, pred_speed_k_3_cos, col="red", pch=19, ylim = range(all_y, na.rm = TRUE),
+     main="True vs Predicted Serve Speeds",
+     xlab="True Speed (km/h)",
+     ylab="Predicted Speed (km/h)")
+points(true_speed, pred_speed_k_3_l2, col="red", pch=17)
+points(true_speed, pred_speed_k_10_cos, col="green", pch=19)
+points(true_speed, pred_speed_k_10_l2, col="green", pch=17)
+points(true_speed, pred_speed_k_30_cos, col="blue", pch=19)
+points(true_speed, pred_speed_k_30_l2, col="blue", pch=17)
+points(true_speed, pred_speed_k_50_cos, col="purple", pch=19)
+points(true_speed, pred_speed_k_50_l2, col="purple", pch=17)
+legend("left",
+       legend = c("k=3 Cosine", "k=3 L2",
+                  "k=10 Cosine", "k=10 L2",
+                  "k=30 Cosine", "k=30 L2",
+                  "k=50 Cosine", "k=50 L2"),
+       col = c("red", "red", "green", "green", "blue", "blue", "purple", "purple"),
+       pch = c(19, 17, 19, 17, 19, 17, 19, 17))
 
