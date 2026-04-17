@@ -202,6 +202,23 @@ rmse(true_speed, pred_speed_k_3_l2)
 mae(true_speed, pred_speed_k_3_cos)
 mae(true_speed, pred_speed_k_3_l2)
 
+# k=5
+pred_speed_k_5_cos <- c()
+pred_speed_k_5_l2 <- c()
+
+for (player in rmse_players) {
+  pred <- user_collab_filter(copy_data, player, "cosine", 5)
+  pred_speed_k_5_cos <- c(pred_speed_k_5_cos, pred["serve_speed"])
+  pred <- user_collab_filter(copy_data, player, "L2", 5)
+  pred_speed_k_5_l2 <- c(pred_speed_k_5_l2, pred["serve_speed"])
+}
+
+rmse(true_speed, pred_speed_k_5_cos)
+rmse(true_speed, pred_speed_k_5_l2)
+
+mae(true_speed, pred_speed_k_5_cos)
+mae(true_speed, pred_speed_k_5_l2)
+
 # k=10
 pred_speed_k_10_cos <- c()
 pred_speed_k_10_l2 <- c()
@@ -219,22 +236,23 @@ rmse(true_speed, pred_speed_k_10_l2)
 mae(true_speed, pred_speed_k_10_cos)
 mae(true_speed, pred_speed_k_10_l2)
 
-# k=30
-pred_speed_k_30_cos <- c()
-pred_speed_k_30_l2 <- c()
+# k=12
+pred_speed_k_12_cos <- c()
+pred_speed_k_12_l2 <- c()
 
 for (player in rmse_players) {
-  pred <- user_collab_filter(copy_data, player, "cosine", 30)
-  pred_speed_k_30_cos <- c(pred_speed_k_30_cos, pred["serve_speed"])
-  pred <- user_collab_filter(copy_data, player, "L2", 30)
-  pred_speed_k_30_l2 <- c(pred_speed_k_30_l2, pred["serve_speed"])
+  pred <- user_collab_filter(copy_data, player, "cosine", 12)
+  pred_speed_k_12_cos <- c(pred_speed_k_12_cos, pred["serve_speed"])
+  pred <- user_collab_filter(copy_data, player, "L2", 12)
+  pred_speed_k_12_l2 <- c(pred_speed_k_12_l2, pred["serve_speed"])
 }
 
-rmse(true_speed, pred_speed_k_30_cos)
-rmse(true_speed, pred_speed_k_30_l2)
+rmse(true_speed, pred_speed_k_12_cos)
+rmse(true_speed, pred_speed_k_12_l2)
 
-mae(true_speed, pred_speed_k_30_cos)
-mae(true_speed, pred_speed_k_30_l2)
+mae(true_speed, pred_speed_k_12_cos)
+mae(true_speed, pred_speed_k_12_l2)
+
 
 # # k=50
 # pred_speed_k_50_cos <- c()
@@ -251,8 +269,8 @@ mae(true_speed, pred_speed_k_30_l2)
 # rmse(true_speed, pred_speed_k_50_l2)
 
 all_y <- c(pred_speed_k_3_cos, pred_speed_k_3_l2,
-           pred_speed_k_10_cos, pred_speed_k_10_l2,
-           pred_speed_k_30_cos, pred_speed_k_30_l2
+           pred_speed_k_5_cos, pred_speed_k_5_l2,
+           pred_speed_k_10_cos, pred_speed_k_10_l2
            )
 
 plot(true_speed, pred_speed_k_3_cos, col="red", pch=19, ylim = range(all_y, na.rm = TRUE),
@@ -260,14 +278,59 @@ plot(true_speed, pred_speed_k_3_cos, col="red", pch=19, ylim = range(all_y, na.r
      xlab="True Speed (km/h)",
      ylab="Predicted Speed (km/h)")
 points(true_speed, pred_speed_k_3_l2, col="red", pch=17)
-points(true_speed, pred_speed_k_10_cos, col="green", pch=19)
-points(true_speed, pred_speed_k_10_l2, col="green", pch=17)
-points(true_speed, pred_speed_k_30_cos, col="blue", pch=19)
-points(true_speed, pred_speed_k_30_l2, col="blue", pch=17)
-legend("topright",
+points(true_speed, pred_speed_k_5_cos, col="green", pch=19)
+points(true_speed, pred_speed_k_5_l2, col="green", pch=17)
+points(true_speed, pred_speed_k_10_cos, col="blue", pch=19)
+points(true_speed, pred_speed_k_10_l2, col="blue", pch=17)
+legend("topleft",
        legend = c("k=3 Cosine", "k=3 L2",
-                  "k=10 Cosine", "k=10 L2",
-                  "k=30 Cosine", "k=30 L2"),
+                  "k=5 Cosine", "k=5 L2",
+                  "k=10 Cosine", "k=10 L2"),
        col = c("red", "red", "green", "green", "blue", "blue"),
        pch = c(19, 17, 19, 17, 19, 17))
 
+
+k_values <- 1:20
+
+rmse_cos <- c()
+rmse_l2  <- c()
+mae_cos  <- c()
+mae_l2   <- c()
+
+for (k in k_values) {
+  pred_cos <- c()
+  pred_l2  <- c()
+  
+  for (player in rmse_players) {
+    pred <- user_collab_filter(copy_data, player, "cosine", k)
+    pred_cos <- c(pred_cos, pred["serve_speed"])
+    
+    pred <- user_collab_filter(copy_data, player, "L2", k)
+    pred_l2 <- c(pred_l2, pred["serve_speed"])
+  }
+  
+  rmse_cos <- c(rmse_cos, rmse(true_speed, pred_cos))
+  rmse_l2  <- c(rmse_l2,  rmse(true_speed, pred_l2))
+  
+  mae_cos  <- c(mae_cos, mae(true_speed, pred_cos))
+  mae_l2   <- c(mae_l2,  mae(true_speed, pred_l2))
+}
+
+plot(k_values, rmse_cos, type="b", pch=19,
+     ylim=range(c(rmse_cos, rmse_l2), na.rm=TRUE),
+     xlab="k (Number of Neighbors)",
+     ylab="RMSE",
+     main="RMSE vs k")
+
+lines(k_values, rmse_l2, type="b", pch=17)
+
+legend("topright",
+       legend=c("Cosine", "L2"),
+       col=c("black", "black"),
+       pch=c(19, 17))
+
+best_k_cos <- k_values[which.min(rmse_cos)]
+best_k_l2  <- k_values[which.min(rmse_l2)]
+
+best_k_cos
+best_k_l2
